@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Prince Vadukul — Portfolio</title>
+  <meta name="description" content="Prince Vadukul — Unity developer portfolio." />
+  <link rel="icon" href="assets/favicon.png" type="image/png">
+  <style>
+    :root{
+      /* Option A - Modern Dev */
+      --bg: #0B1220;
+      --card: #0F1B2B;
+      --muted: #9AA4B2;
+      --accent: #4F46E5;
+      --accent-2: #34D399;
+      --text: #E6EEF6;
+      --glass: rgba(255,255,255,0.03);
+      --maxw:1100px;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:linear-gradient(180deg,var(--bg), #08101a);color:var(--text);line-height:1.45}
+    .container{max-width:var(--maxw);margin:32px auto;padding:24px}
+
+    header{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;align-items:center;gap:14px}
+    .logo{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--accent-2),var(--accent));display:flex;align-items:center;justify-content:center;font-weight:700;color:#07111a}
+    h1{font-size:28px;margin:0}
+    p.tag{color:var(--muted);margin:2px 0 0}
+
+    /* nav */
+    nav{display:flex;gap:12px}
+    nav a{color:var(--muted);text-decoration:none;padding:8px 12px;border-radius:8px}
+    nav a:hover{background:var(--glass);color:var(--text)}
+
+    /* hamburger */
+    .hamburger{display:none;background:transparent;border:0;cursor:pointer}
+    .hamburger .bar{width:22px;height:2px;background:var(--text);display:block;margin:5px 0;border-radius:2px}
+
+    .hero{display:grid;grid-template-columns:1fr 360px;gap:24px;margin-top:28px;align-items:center}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:14px;padding:20px}
+
+    .intro h2{margin:0 0 8px;font-size:22px}
+    .intro p{color:var(--muted);margin:0 0 12px}
+    .cta{display:flex;gap:10px;flex-wrap:wrap}
+    .btn{background:var(--accent);color:#fff;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:600}
+    .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
+
+    .skills{display:flex;flex-wrap:wrap;gap:10px}
+    .skill{background:rgba(255,255,255,0.03);padding:8px 10px;border-radius:8px;color:var(--muted);font-weight:600}
+
+    .right-card{display:flex;flex-direction:column;gap:8px}
+    .stat{display:flex;justify-content:space-between;padding:12px;border-radius:10px;background:rgba(255,255,255,0.02)}
+    .stat strong{font-size:18px}
+    .muted{color:var(--muted)}
+
+    section{margin-top:22px}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .project{padding:14px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.02));min-height:90px}
+    .project h4{margin:0 0 6px}
+    .project p{margin:0;color:var(--muted);font-size:13px}
+
+    .projects-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+
+    footer{margin-top:36px;padding:16px;text-align:center;color:var(--muted)}
+
+    /* gallery */
+    .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-top:10px}
+    .gallery img{width:100%;height:110px;object-fit:cover;border-radius:10px;display:block}
+
+    /* blog teaser */
+    #blog article{margin-bottom:12px}
+    #blog h4{margin:0 0 6px}
+
+    /* social */
+    .social{display:flex;gap:10px;align-items:center}
+    .social a{color:var(--muted);text-decoration:none}
+
+    /* responsive */
+    @media (max-width:920px){.hero{grid-template-columns:1fr} .grid{grid-template-columns:repeat(2,1fr)} }
+    @media (max-width:560px){
+      .grid{grid-template-columns:1fr}
+      nav{display:none}
+      .hamburger{display:block}
+    }
+
+    /* small utilities */
+    .list{display:flex;flex-direction:column;gap:10px}
+    .chip{display:inline-block;padding:6px 9px;border-radius:999px;background:rgba(255,255,255,0.02);font-weight:600;color:var(--muted)}
+    a.mail{color:var(--accent);font-weight:700}
+
+    /* subtle animations */
+    .fade-up{transform:translateY(8px);opacity:0;animation:up 600ms ease-out forwards}
+    @keyframes up{to{transform:none;opacity:1}}
+
+    /* mobile nav panel */
+    .mobile-nav{position:fixed;top:0;left:0;right:0;background:linear-gradient(180deg,var(--bg), rgba(11,27,43,0.95));padding:16px;display:none;z-index:60}
+    .mobile-nav a{display:block;padding:12px 8px;color:var(--text);text-decoration:none}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="fade-up">
+      <div class="brand">
+        <div class="logo">PV</div>
+        <div>
+          <h1>Prince Vadukul</h1>
+          <p class="tag">Unity · Game Dev · Discord Dev</p>
+        </div>
+      </div>
+
+      <nav>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <button class="hamburger" aria-label="Open menu" id="hamburger">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </header>
+
+    <!-- mobile nav panel -->
+    <div id="mobileNav" class="mobile-nav" aria-hidden="true">
+      <a href="#about" class="mobile-link">About</a>
+      <a href="#projects" class="mobile-link">Projects</a>
+      <a href="#skills" class="mobile-link">Skills</a>
+      <a href="#contact" class="mobile-link">Contact</a>
+    </div>
+
+    <main class="hero">
+      <section class="card intro fade-up">
+        <h2>Hi — I'm Prince, a Unity & Discord developer</h2>
+        <p>I'm a professional Unity developer with 2+ years of experience. I build multiplayer and single-player games, tools, and Discord bots & servers.</p>
+
+        <div class="cta">
+          <a class="btn" href="#projects">See projects</a>
+          <a class="btn ghost" href="#contact">Contact me</a>
+        </div>
+
+        <div style="margin-top:16px">
+          <h4 style="margin:0 0 8px">Core skills</h4>
+          <div class="skills">
+            <span class="skill">Unity Game Development</span>
+            <span class="skill">Discord Bot Maker</span>
+            <span class="skill">Discord Server Dev</span>
+            <span class="skill">Minecraft Server Dev</span>
+          </div>
+        </div>
+      </section>
+
+      <aside class="card right-card fade-up">
+        <div class="stat">
+          <div>
+            <div class="muted">Years experience</div>
+            <strong>2+ years</strong>
+          </div>
+          <div style="text-align:right">
+            <div class="muted">Discord projects</div>
+            <strong>3 servers + Bot</strong>
+          </div>
+        </div>
+        <div class="stat">
+          <div>
+            <div class="muted">Primary tools</div>
+            <strong>Unity · C# · Discord.js</strong>
+          </div>
+          <div style="text-align:right">
+            <div class="muted">Location</div>
+            <strong>India</strong>
+          </div>
+        </div>
+
+        <div style="padding:10px;background:rgba(255,255,255,0.01);border-radius:10px;margin-top:auto">
+          <div class="muted">Email</div>
+          <div style="margin-top:6px;"><a class="mail" href="mailto:princevadukul01@gmail.com">princevadukul01@gmail.com</a></div>
+        </div>
+      </aside>
+    </main>
+
+    <section id="projects" class="fade-up">
+      <h3 style="margin:8px 0 12px">Projects</h3>
+
+      <div class="projects-grid">
+        <div class="card">
+          <h4>Unity Projects</h4>
+          <div class="list" style="margin-top:10px">
+            <div class="project"><h4>LUDO</h4><p class="muted">Local & online board game ideas — prototype</p></div>
+            <div class="project"><h4>HOLE.IO</h4><p class="muted">Arcade-style eating/merge gameplay</p></div>
+            <div class="project"><h4>SKITGUSERR</h4><p class="muted">Experimental prototype</p></div>
+            <div class="project"><h4>DRGONE HUNTER</h4><p class="muted">Enemy wave/targeting shooter</p></div>
+            <div class="project"><h4>WHEEL SUFER</h4><p class="muted">Casual runner with wheel mechanics</p></div>
+            <div class="project"><h4>CASINO</h4><p class="muted">Roulette & betting systems</p></div>
+            <div class="project"><h4>RUNNER GAME</h4><p class="muted">Endless runner mechanics and level design</p></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h4>Discord Projects & Servers</h4>
+          <div class="list" style="margin-top:10px">
+            <div class="project"><h4>Bot: Prince`OG</h4><p class="muted">Custom Discord bot with moderation and fun commands.</p></div>
+            <div class="project"><h4>Fusion mc</h4><p class="muted">Minecraft server management & plugins</p></div>
+            <div class="project"><h4>SV STUDIO</h4><p class="muted">Community & creative server</p></div>
+            <div class="project"><h4>Prince's OG Community</h4><p class="muted">General community support & events</p></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gallery -->
+      <h4 style="margin-top:18px">Project Gallery</h4>
+      <div class="card">
+        <div class="gallery">
+          <a href="assets/placeholder-ludo.jpg" target="_blank"><img src="assets/placeholder-ludo.jpg" alt="LUDO screenshot" loading="lazy"></a>
+          <a href="assets/placeholder-holeio.jpg" target="_blank"><img src="assets/placeholder-holeio.jpg" alt="HOLE.IO" loading="lazy"></a>
+          <a href="assets/placeholder-wheel.jpg" target="_blank"><img src="assets/placeholder-wheel.jpg" alt="WHEEL SURFER" loading="lazy"></a>
+          <a href="assets/placeholder-casino.jpg" target="_blank"><img src="assets/placeholder-casino.jpg" alt="CASINO" loading="lazy"></a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="fade-up">
+      <h3 style="margin:8px 0 12px">About me</h3>
+      <div class="card">
+        <p>I'm a professional Unity developer with 2+ years of hands-on experience building games, gameplay systems, and tools. I also design and manage Discord servers and create custom Discord bots (Prince`OG). I enjoy fast prototyping, solving gameplay problems, and shipping features that players love.</p>
+        <p class="muted" style="margin-top:8px">If you'd like to see demos or source, I can provide builds, screen recordings, or code samples on request.</p>
+      </div>
+    </section>
+
+    <section id="skills" class="fade-up">
+      <h3 style="margin:8px 0 12px">Skills & Tools</h3>
+      <div class="card grid" style="grid-template-columns:1fr 1fr 1fr;">
+        <div>
+          <h4>Game Dev</h4>
+          <p class="muted">Unity, C#, DOTS (basic), physics, UI systems</p>
+        </div>
+        <div>
+          <h4>Discord</h4>
+          <p class="muted">Discord.js, Bot commands, Moderation systems, Server setup</p>
+        </div>
+        <div>
+          <h4>Servers & Tools</h4>
+          <p class="muted">Minecraft server setup, plugin config, basic networking</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Blog teaser -->
+    <section id="blog" class="fade-up">
+      <h3 style="margin:8px 0 12px">Blog & Updates</h3>
+      <div class="card">
+        <article>
+          <a href="#" style="text-decoration:none;color:var(--text)"><h4>How I built the Wheel Surfer spin system</h4></a>
+          <p style="margin:0;color:var(--muted);font-size:13px">Short teaser — 2 min read · July 2025</p>
+        </article>
+        <article>
+          <a href="#"><h4>Setting up a custom Discord moderation bot</h4></a>
+          <p style="margin:0;color:var(--muted);font-size:13px">Short teaser · May 2025</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" class="fade-up">
+      <h3 style="margin:8px 0 12px">Contact</h3>
+      <div class="card">
+        <p>If you'd like to hire me, collaborate, or see more work, email me:</p>
+        <p><a class="mail" href="mailto:princevadukul01@gmail.com">princevadukul01@gmail.com</a></p>
+        <p class="muted">Prefer Discord? Add me on Discord (PrinceOG) — tell me you're from the portfolio.</p>
+
+        <div style="margin-top:12px">
+          <h4 style="margin:0 0 8px">Find me</h4>
+          <div class="social">
+            <a href="https://github.com/yourhandle" target="_blank" aria-label="GitHub">GitHub</a>
+            <a href="https://discord.gg/yourserver" target="_blank" aria-label="Discord">Discord</a>
+            <a href="https://www.linkedin.com/in/yourhandle" target="_blank" aria-label="LinkedIn">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div>Made by Prince Vadukul — © <span id="year"></span></div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mobile nav toggle
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobileNav');
+    hamburger.addEventListener('click', ()=>{
+      const open = mobileNav.style.display === 'block';
+      mobileNav.style.display = open ? 'none' : 'block';
+      mobileNav.setAttribute('aria-hidden', open ? 'true' : 'false');
+    });
+
+    // Close mobile nav when links clicked
+    document.querySelectorAll('.mobile-link').forEach(a=>a.addEventListener('click', ()=>{ mobileNav.style.display='none'; }));
+
+    // playful logo click
+    const logo = document.querySelector('.logo');
+    logo.addEventListener('click', ()=>{
+      document.documentElement.style.setProperty('--accent', '#34d399');
+      logo.animate([{transform:'scale(1)'},{transform:'scale(1.08)'},{transform:'scale(1)'}],{duration:420});
+    });
+  </script>
+</body>
+</html>
